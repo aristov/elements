@@ -1,2 +1,4 @@
+.idea
+.bem/tmp
 node_modules
 bundles/index
