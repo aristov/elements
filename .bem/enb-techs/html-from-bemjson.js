@@ -2,11 +2,11 @@
  * html-from-bemjson
  * =================
  *
- * Собирает *html*-файл с помощью *bemjson* и *bemhtml*.
+ * Собирает *html*-файл с помощью *bemjson* и *bemjst*.
  *
  * **Опции**
  *
- * * *String* **bemhtmlTarget** — Исходный BEMHTML-файл. По умолчанию — `?.bemhtml.js`.
+ * * *String* **bemjstTarget** — Исходный BEMJST-файл. По умолчанию — `?.jst.js`.
  * * *String* **bemjsonTarget** — Исходный BEMJSON-файл. По умолчанию — `?.bemjson.js`.
  * * *String* **destTarget** — Результирующий HTML-файл. По умолчанию — `?.html`.
  *
@@ -23,17 +23,17 @@ var dropRequireCache = require('enb/lib/fs/drop-require-cache');
 module.exports = require('enb/lib/build-flow').create()
     .name('html-from-bemjson')
     .target('destTarget', '?.html')
-    .useSourceFilename('bemhtmlTarget', '?.jst.js')
+    .useSourceFilename('bemjstTarget', '?.jst.js')
     .useSourceFilename('bemjsonTarget', '?.bemjson.js')
-    .builder(function (bemhtmlFilename, bemjsonFilename) {
+    .builder(function (bemjstFilename, bemjsonFilename) {
         dropRequireCache(require, bemjsonFilename);
         return requireOrEval(bemjsonFilename).then(function (json) {
-            dropRequireCache(require, bemhtmlFilename);
-            return asyncRequire(bemhtmlFilename).then(function(bemhtml) {
-                if (!bemhtml.BEMJST && bemhtml.lib) {
-                    return bemhtml.build(json);
+            dropRequireCache(require, bemjstFilename);
+            return asyncRequire(bemjstFilename).then(function(bemjst) {
+                if (!bemjst.BEMJST && bemjst.lib) {
+                    return bemjst.build(json);
                 } else {
-                    return bemhtml.BEMJST.buildHtml(bemhtml.BEMJST.build(json));
+                    return bemjst.BEMJST.buildHtml(bemjst.BEMJST.build(json));
                 }
             });
         });
