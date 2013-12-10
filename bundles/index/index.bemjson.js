@@ -6,7 +6,7 @@
         },
         {
             elem: 'body',
-            content: 'fuck'
+            content: 'Hello World!'
         }
     ]
 })

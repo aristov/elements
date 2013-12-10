@@ -4,7 +4,7 @@ _('block page') (
         return [
             '<!DOCTYPE html>',
             applyNext()
-        ]
+        ];
     }),
 
     _('tag') ('html'),
@@ -21,7 +21,9 @@ _('block page') (
 
     _('elem body') (
 
-        _('tag') ('body')
+        _('tag') ('body'),
+
+        _('mix') ({ block: 'page' })
 
     )
 
