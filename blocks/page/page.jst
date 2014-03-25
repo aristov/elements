@@ -1,30 +1,48 @@
 _('block page') (
 
-    _('default') (function() {
-        return [
-            '<!DOCTYPE html>',
-            applyNext()
-        ];
-    }),
+    _('default')
+        (function() {
+            return [
+                '<!DOCTYPE html>',
+                applyNext()
+            ];
+        }),
 
     _('tag') ('html'),
-
     _('bem') (false),
 
     _('elem head') (
-
         _('tag') ('head'),
-
         _('bem') (false)
-
     ),
 
     _('elem body') (
-
         _('tag') ('body'),
-
         _('mix') ({ block: 'page' })
+    ),
 
+    _('elem js') (
+        _('tag') ('script'),
+        _('bem') (false),
+        _('attrs')
+            (function(ctx) {
+                return {
+                    type: 'text/javascript',
+                    src: ctx.url
+                };
+            })
+    ),
+
+    _('elem css') (
+        _('tag') ('link'),
+        _('bem') (false),
+        _('attrs')
+            (function(ctx) {
+                return {
+                    rel: 'stylesheet',
+                    href: ctx.url
+                };
+            })
     )
 
 );
