@@ -1,7 +1,25 @@
 {
+    "author": "",
     "name": "elements",
     "version": "0.0.0",
+    "description": "BEM Components Library",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/aristov/elements.git"
+    },
+    "keywords": [
+        "bem"
+    ],
+    "engines": {
+        "node": ">=0.10"
+    },
     "dependencies": {
-        "enb": "0.8.42"
-    }
+        "enb": "~0.10.0"
+    },
+    "devDependencies": {
+        "bower-npm-install": "~0.5.2"
+    },
+    "optionalDependencies": {},
+    "private": true
 }
+
