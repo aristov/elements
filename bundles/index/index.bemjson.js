@@ -2,11 +2,18 @@
     block: 'page',
     content: [
         {
-            elem: 'head'
+            elem: 'head',
+            content: [
+                { elem: 'js', url: '../../node_modules/ym/modules.js' },
+                { elem: 'js', url: '_index.js' },
+                { elem: 'css', url: '_index.css' }
+            ]
         },
         {
             elem: 'body',
-            content: 'Hello World!'
+            content: {
+                block: 'input'
+            }
         }
     ]
 })
