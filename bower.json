@@ -1,0 +1,15 @@
+{
+    "name": "elements",
+    "version": "0.0.0",
+    "description": "BEM Components Library",
+    "bugs": "https://github.com/aristov/elements/issues",
+    "ignore": [
+        ".bem/cache",
+        "node_modules",
+        "libs"
+    ],
+    "dependencies": {
+        "bem-core": "git://github.com/bem/bem-core.git#v2"
+    },
+    "private": true
+}
